@@ -1,11 +1,10 @@
+from prettytable import PrettyTable
 def print_csv(input):
-    from prettytable import PrettyTable
-    x = PrettyTable()
+    table = PrettyTable()
     lines = input.split('\n')
     head = lines[0]
-    x.field_names = head.split(',')
-    n = len(lines)
-    for i in range(1, n):
-        x.add_row(lines[i].split(','))
-    print(x)
+    table.field_names = head.split(',')
+    for i in range(1, len(lines)):
+        table.add_row(lines[i].split(','))
+    print(table)
 print_csv("a,b\n1,2")
